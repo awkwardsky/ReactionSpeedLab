@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title">點擊反應速度測試</title>
+    <meta
+      id="meta-description"
+      name="description"
+      content="免費測試你的點擊反應速度。等待畫面變綠後立即點擊，完成多輪測試後取得平均反應時間與成績評語。"
+    />
+    <meta id="og-title" property="og:title" content="點擊反應速度測試" />
+    <meta
+      id="og-description"
+      property="og:description"
+      content="紅色待命、綠色點擊，快速測出你的平均反應速度。"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <!--
+      將 ca-pub-xxxxxxxxxxxxxxxx 換成你的 AdSense Publisher ID 後取消註解。
+      AdSense 通過審核前，建議先保留註解避免無效請求。
+    -->
+    <!--
+    <script async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+      crossorigin="anonymous"></script>
+    -->
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="topbar">
+        <div class="control-group language-switcher">
+          <label for="language-select" data-i18n="languageLabel">語言切換</label>
+          <select id="language-select">
+            <option value="zh-Hant">繁體中文</option>
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+          </select>
+        </div>
+      </div>
+
+      <header class="hero">
+        <div class="hero-copy">
+          <p id="hero-subtitle" class="hero-subtitle">點擊反應速度測試</p>
+          <h1 id="hero-title">Reaction Speed Lab</h1>
+        </div>
+        <aside class="ad-card">
+          <p class="ad-label" data-i18n="adLabel">廣告區</p>
+          <div class="ad-slot">
+            <span>728 x 90</span>
+            <p data-i18n="heroAdText">這裡可放 AdSense 橫幅廣告</p>
+          </div>
+        </aside>
+      </header>
+
+      <main class="layout">
+        <section class="tester-panel">
+          <div
+            id="test-area"
+            class="test-area is-idle"
+            role="button"
+            tabindex="0"
+            aria-live="polite">
+            <span class="test-area-toolbar">
+              <span class="control-group control-group-inline control-group-inline-light">
+                <label for="attempts">
+                  <span data-i18n="attemptsLabelPrefix">想要測試</span>
+                </label>
+                <select id="attempts">
+                  <option value="3">3次</option>
+                  <option value="5" selected>5次</option>
+                  <option value="10">10次</option>
+                  <option value="15">15次</option>
+                  <option value="20">20次</option>
+                </select>
+                <span data-i18n="attemptsLabelSuffix">次取平均值</span>
+              </span>
+            </span>
+            <span class="test-area-content">
+              <span class="phase">準備開始</span>
+              <span class="message">點這裡開始測試</span>
+              <span class="hint">畫面變綠時立刻點擊</span>
+            </span>
+          </div>
+
+          <div class="actions">
+            <button id="share-button" class="ghost-button" type="button" data-i18n="shareButton" disabled>分享成績</button>
+            <button id="reset-button" class="ghost-button" type="button" data-i18n="resetButton">清除所有資料</button>
+          </div>
+
+          <section class="results-card" aria-live="polite">
+            <div class="results-head">
+              <div>
+                <p class="section-label" data-i18n="resultsLabel">測試結果</p>
+                <h2 id="result-title">等待開始</h2>
+              </div>
+            </div>
+
+            <div class="result-grid">
+              <article>
+                <span data-i18n="averageLabel">平均反應</span>
+                <strong id="average-time">-- ms</strong>
+              </article>
+              <article>
+                <span data-i18n="bestLabel">最快一次</span>
+                <strong id="best-time">-- ms</strong>
+              </article>
+            </div>
+
+            <p id="result-description" class="result-description">
+              完成全部輪數後，這裡會顯示你的等級與建議。
+            </p>
+
+            <section id="trend-chart" class="trend-chart" aria-live="polite">
+              <div id="trend-chart-empty" class="trend-chart-empty">完成測試後，這裡會顯示反應趨勢。</div>
+              <svg id="trend-chart-svg" class="trend-chart-svg" viewBox="0 0 640 220" preserveAspectRatio="none"></svg>
+            </section>
+          </section>
+        </section>
+
+        <aside class="sidebar">
+          <section class="info-card">
+            <p class="section-label" data-i18n="howToPlayLabel">玩法說明</p>
+            <ul id="how-to-play-list">
+              <li>按下開始後，測試區會先維持紅色等待。</li>
+              <li>當畫面變成綠色時，立刻點擊一次。</li>
+              <li>太早點擊會重置當輪並提示你重來。</li>
+            </ul>
+          </section>
+
+          <section class="info-card">
+            <p class="section-label" data-i18n="rankingLabel">反應表現參考</p>
+            <ul id="ranking-guide">
+              <li>140ms 內：頂尖</li>
+              <li>141-190ms：非常快</li>
+              <li>191-250ms：高於平均</li>
+              <li>251-320ms：平均範圍</li>
+              <li>321ms 以上：可再練習</li>
+            </ul>
+            <p id="ranking-note">年齡參考</p>
+            <ul id="ranking-age-guide">
+              <li>0-15 歲：約 250-300 ms</li>
+              <li>16-25 歲：約 200-250 ms</li>
+              <li>26-35 歲：約 220-270 ms</li>
+              <li>36-45 歲：約 240-300 ms</li>
+              <li>46-55 歲：約 270-350 ms</li>
+              <li>56-65 歲：約 300-400 ms</li>
+            </ul>
+          </section>
+
+          <section class="ad-card side-ad">
+            <p class="ad-label" data-i18n="adLabel">廣告區</p>
+            <div class="ad-slot square">
+              <span>300 x 250</span>
+              <p data-i18n="sideAdText">可替換成側邊矩形廣告</p>
+            </div>
+          </section>
+        </aside>
+      </main>
+
+      <section class="content-grid">
+        <article class="text-card">
+          <p class="section-label" data-i18n="monetizeWhyLabel">為什麼這個頁面適合放廣告</p>
+          <p id="monetize-why-text">
+            反應測試頁停留時間通常不短，使用者會反覆挑戰多輪。這種單頁型互動站很適合放上方橫幅、側欄矩形與結果區下方原生廣告。
+          </p>
+        </article>
+        <article class="text-card">
+          <p class="section-label" data-i18n="monetizeNoteLabel">變現提醒</p>
+          <p id="monetize-note-text">
+            廣告收益要進你自己的帳號，必須用你自己的網域、AdSense 帳號與廣告單元 ID。單純複製別人的版面，不會讓收益流到你這邊。
+          </p>
+        </article>
+      </section>
+
+      <footer class="site-footer">
+        <p id="footer-copy">© 2026 Reaction Speed Lab</p>
+        <nav>
+          <a href="./privacy.html" id="privacy-link">隱私權政策</a>
+        </nav>
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
