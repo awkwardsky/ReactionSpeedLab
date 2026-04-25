@@ -37,8 +37,13 @@
   <body>
     <div class="page-shell">
       <div class="topbar">
+        <div class="control-group theme-switcher">
+          <button id="theme-toggle-button" class="theme-icon-button" type="button" aria-label="切換主題" title="切換主題">
+            <span id="theme-toggle-icon" class="theme-toggle-icon" aria-hidden="true"></span>
+          </button>
+        </div>
         <div class="control-group language-switcher">
-          <label for="language-select" data-i18n="languageLabel">語言切換</label>
+          <label for="language-select" class="topbar-label" data-i18n="languageLabel">語言切換</label>
           <select id="language-select">
             <option value="zh-Hant">繁體中文</option>
             <option value="en">English</option>
@@ -96,6 +101,7 @@
             <button id="share-button" class="ghost-button" type="button" data-i18n="shareButton" disabled>分享成績</button>
             <button id="reset-button" class="ghost-button" type="button" data-i18n="resetButton">清除所有資料</button>
           </div>
+          <p id="share-feedback" class="share-feedback" aria-live="polite"></p>
 
           <section class="results-card" aria-live="polite">
             <div class="results-head">

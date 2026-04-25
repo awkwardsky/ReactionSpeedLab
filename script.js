@@ -11,8 +11,15 @@ const translations = {
     heroAdText: "這裡可放 AdSense 橫幅廣告",
     attemptsLabelPrefix: "想要測試",
     attemptsLabelSuffix: "取平均值",
+    themeLabel: "主題模式",
+    themeLight: "淺色",
+    themeDark: "深色",
+    themeToggleToLight: "切換為淺色模式",
+    themeToggleToDark: "切換為深色模式",
     languageLabel: "語言切換",
     shareButton: "分享成績",
+    shareWorking: "產生中...",
+    shareShared: "已開啟分享選單",
     resetButton: "清除所有資料",
     resultsLabel: "測試結果",
     averageLabel: "平均反應",
@@ -34,12 +41,12 @@ const translations = {
     ],
     rankingNote: "年齡參考",
     rankingAgeItems: [
-      "0-15 歲：約 250-300 ms",
-      "16-25 歲：約 200-250 ms",
-      "26-35 歲：約 220-270 ms",
-      "36-45 歲：約 240-300 ms",
-      "46-55 歲：約 270-350 ms",
-      "56-65 歲：約 300-400 ms",
+      "0-15歲：250-300ms",
+      "16-25歲：200-250ms",
+      "26-35歲：220-270ms",
+      "36-45歲：240-300ms",
+      "46-55歲：270-350ms",
+      "56-65歲：300-400ms",
     ],
     sideAdText: "可替換成側邊矩形廣告",
     monetizeWhyLabel: "為什麼這個頁面適合放廣告",
@@ -63,6 +70,9 @@ const translations = {
     shareSummary: (average, best) => `平均 ${average} ms · 最快 ${best} ms`,
     shareFooter: "Reaction Speed Lab",
     shareFileName: "reaction-speed-result.png",
+    shareDownloaded: "已下載分享圖片",
+    shareOpened: "已開啟分享圖片，可另存或轉傳",
+    shareUnavailable: "目前裝置不支援直接分享，已改為下載圖片",
     averagePrefix: "平均",
     waitingMessage: "等待變綠",
     waitingHint: "現在先不要點",
@@ -98,8 +108,15 @@ const translations = {
     heroAdText: "Place an AdSense banner here",
     attemptsLabelPrefix: "Use",
     attemptsLabelSuffix: "for the average",
+    themeLabel: "Theme",
+    themeLight: "Light",
+    themeDark: "Dark",
+    themeToggleToLight: "Switch to light mode",
+    themeToggleToDark: "Switch to dark mode",
     languageLabel: "Language",
     shareButton: "Share Result",
+    shareWorking: "Preparing...",
+    shareShared: "Share sheet opened",
     resetButton: "Clear All Data",
     resultsLabel: "Results",
     averageLabel: "Average",
@@ -121,12 +138,12 @@ const translations = {
     ],
     rankingNote: "Age Reference",
     rankingAgeItems: [
-      "Ages 0-15: about 250-300 ms",
-      "Ages 16-25: about 200-250 ms",
-      "Ages 26-35: about 220-270 ms",
-      "Ages 36-45: about 240-300 ms",
-      "Ages 46-55: about 270-350 ms",
-      "Ages 56-65: about 300-400 ms",
+      "Ages 0-15: 250-300ms",
+      "Ages 16-25: 200-250ms",
+      "Ages 26-35: 220-270ms",
+      "Ages 36-45: 240-300ms",
+      "Ages 46-55: 270-350ms",
+      "Ages 56-65: 300-400ms",
     ],
     sideAdText: "Swap this for a sidebar rectangle ad",
     monetizeWhyLabel: "Why This Page Fits Ads",
@@ -150,6 +167,9 @@ const translations = {
     shareSummary: (average, best) => `Average ${average} ms · Best ${best} ms`,
     shareFooter: "Reaction Speed Lab",
     shareFileName: "reaction-speed-result.png",
+    shareDownloaded: "Share image downloaded",
+    shareOpened: "Share image opened in a new tab",
+    shareUnavailable: "Direct share is unavailable here, so the image was downloaded instead",
     averagePrefix: "Average",
     waitingMessage: "Wait for green",
     waitingHint: "Do not click yet",
@@ -185,8 +205,15 @@ const translations = {
     heroAdText: "ここに AdSense バナーを配置できます",
     attemptsLabelPrefix: "平均値を出すために",
     attemptsLabelSuffix: "で平均を取る",
+    themeLabel: "テーマ",
+    themeLight: "ライト",
+    themeDark: "ダーク",
+    themeToggleToLight: "ライトモードに切り替え",
+    themeToggleToDark: "ダークモードに切り替え",
     languageLabel: "言語",
     shareButton: "結果を共有",
+    shareWorking: "作成中...",
+    shareShared: "共有メニューを開きました",
     resetButton: "すべてのデータを削除",
     resultsLabel: "テスト結果",
     averageLabel: "平均反応",
@@ -208,12 +235,12 @@ const translations = {
     ],
     rankingNote: "年齢別の目安",
     rankingAgeItems: [
-      "0-15歳: 約 250-300 ms",
-      "16-25歳: 約 200-250 ms",
-      "26-35歳: 約 220-270 ms",
-      "36-45歳: 約 240-300 ms",
-      "46-55歳: 約 270-350 ms",
-      "56-65歳: 約 300-400 ms",
+      "0-15歳: 250-300ms",
+      "16-25歳: 200-250ms",
+      "26-35歳: 220-270ms",
+      "36-45歳: 240-300ms",
+      "46-55歳: 270-350ms",
+      "56-65歳: 300-400ms",
     ],
     sideAdText: "サイドバー矩形広告に置き換え可能",
     monetizeWhyLabel: "このページが広告向きな理由",
@@ -237,6 +264,9 @@ const translations = {
     shareSummary: (average, best) => `平均 ${average} ms ・ 最速 ${best} ms`,
     shareFooter: "Reaction Speed Lab",
     shareFileName: "reaction-speed-result.png",
+    shareDownloaded: "共有画像をダウンロードしました",
+    shareOpened: "共有画像を新しいタブで開きました",
+    shareUnavailable: "この端末では直接共有できないため、画像をダウンロードしました",
     averagePrefix: "平均",
     waitingMessage: "緑になるまで待機",
     waitingHint: "まだクリックしないでください",
@@ -272,8 +302,15 @@ const translations = {
     heroAdText: "여기에 AdSense 배너를 넣을 수 있습니다",
     attemptsLabelPrefix: "평균값을 위해",
     attemptsLabelSuffix: "평균값 내기",
+    themeLabel: "테마",
+    themeLight: "라이트",
+    themeDark: "다크",
+    themeToggleToLight: "라이트 모드로 전환",
+    themeToggleToDark: "다크 모드로 전환",
     languageLabel: "언어",
     shareButton: "결과 공유",
+    shareWorking: "생성 중...",
+    shareShared: "공유 메뉴를 열었습니다",
     resetButton: "모든 데이터 지우기",
     resultsLabel: "테스트 결과",
     averageLabel: "평균 반응",
@@ -295,12 +332,12 @@ const translations = {
     ],
     rankingNote: "연령대 참고",
     rankingAgeItems: [
-      "0-15세: 약 250-300 ms",
-      "16-25세: 약 200-250 ms",
-      "26-35세: 약 220-270 ms",
-      "36-45세: 약 240-300 ms",
-      "46-55세: 약 270-350 ms",
-      "56-65세: 약 300-400 ms",
+      "0-15세: 250-300ms",
+      "16-25세: 200-250ms",
+      "26-35세: 220-270ms",
+      "36-45세: 240-300ms",
+      "46-55세: 270-350ms",
+      "56-65세: 300-400ms",
     ],
     sideAdText: "사이드바 직사각형 광고로 교체 가능",
     monetizeWhyLabel: "이 페이지가 광고에 맞는 이유",
@@ -324,6 +361,9 @@ const translations = {
     shareSummary: (average, best) => `평균 ${average} ms · 최고 ${best} ms`,
     shareFooter: "Reaction Speed Lab",
     shareFileName: "reaction-speed-result.png",
+    shareDownloaded: "공유 이미지가 다운로드되었습니다",
+    shareOpened: "공유 이미지를 새 탭에서 열었습니다",
+    shareUnavailable: "이 기기에서는 직접 공유가 지원되지 않아 이미지 다운로드로 대체했습니다",
     averagePrefix: "평균",
     waitingMessage: "초록색을 기다리세요",
     waitingHint: "아직 클릭하지 마세요",
@@ -359,11 +399,15 @@ const state = {
   countdownRemaining: 0,
   lastReactionMs: null,
   language: localStorage.getItem("reaction-language") || "zh-Hant",
+  theme: localStorage.getItem("reaction-theme") || "light",
 };
 
 const testArea = document.querySelector("#test-area");
 const testAreaToolbar = document.querySelector(".test-area-toolbar");
+const themeToggleButton = document.querySelector("#theme-toggle-button");
+const themeToggleIcon = document.querySelector("#theme-toggle-icon");
 const shareButton = document.querySelector("#share-button");
+const shareFeedback = document.querySelector("#share-feedback");
 const resetButton = document.querySelector("#reset-button");
 const attemptsSelect = document.querySelector("#attempts");
 const languageSelect = document.querySelector("#language-select");
@@ -426,6 +470,8 @@ function updateStaticCopy() {
   Array.from(attemptsSelect.options).forEach((option) => {
     option.textContent = copy.attemptOption(option.value);
   });
+  clearShareFeedback();
+  applyTheme(state.theme);
 }
 
 function formatProgress(current, total) {
@@ -434,6 +480,34 @@ function formatProgress(current, total) {
 
 function setFocusMode(active) {
   document.body.classList.toggle("is-focus-mode", active);
+}
+
+function getThemeIconSvg(theme) {
+  if (theme === "dark") {
+    return `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>
+      </svg>
+    `;
+  }
+
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"></circle>
+      <path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6M18.7 18.7l-1.6-1.6M6.9 6.9 5.3 5.3"></path>
+    </svg>
+  `;
+}
+
+function applyTheme(theme) {
+  const copy = t();
+  state.theme = theme === "dark" ? "dark" : "light";
+  localStorage.setItem("reaction-theme", state.theme);
+  document.body.classList.toggle("theme-dark", state.theme === "dark");
+  document.body.classList.toggle("theme-light", state.theme !== "dark");
+  themeToggleIcon.innerHTML = getThemeIconSvg(state.theme);
+  themeToggleButton.setAttribute("aria-label", state.theme === "dark" ? copy.themeToggleToLight : copy.themeToggleToDark);
+  themeToggleButton.setAttribute("title", state.theme === "dark" ? copy.themeToggleToLight : copy.themeToggleToDark);
 }
 
 function updateToolbarVisibility(mode) {
@@ -453,6 +527,10 @@ function getStats() {
 
 function updateShareButtonState() {
   shareButton.disabled = !state.results.length;
+}
+
+function setShareFeedback(message = "") {
+  shareFeedback.textContent = message;
 }
 
 function setAreaState(mode, phase, message, hint) {
@@ -666,27 +744,74 @@ function roundRect(context, x, y, width, height, radius) {
 async function shareResult() {
   const blob = await buildShareBlob();
   if (!blob) {
-    return;
+    return "unavailable";
   }
 
   const copy = t();
-  const file = new File([blob], copy.shareFileName, { type: "image/png" });
+  const stats = getStats();
+  const canUseNativeFileShare = typeof File === "function" && navigator.share && navigator.canShare;
 
-  if (navigator.share && navigator.canShare?.({ files: [file] })) {
-    await navigator.share({
-      title: copy.shareTitle,
-      text: copy.shareSummary(getStats().average, getStats().best),
-      files: [file],
-    });
-    return;
+  if (canUseNativeFileShare) {
+    const file = new File([blob], copy.shareFileName, { type: "image/png" });
+
+    if (navigator.canShare({ files: [file] })) {
+      await navigator.share({
+        title: copy.shareTitle,
+        text: copy.shareSummary(stats.average, stats.best),
+        files: [file],
+      });
+      return "shared";
+    }
   }
 
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = copy.shareFileName;
-  link.click();
-  URL.revokeObjectURL(url);
+  const canDownload = typeof link.download === "string";
+
+  if (canDownload) {
+    link.download = copy.shareFileName;
+    link.style.display = "none";
+    document.body.append(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1500);
+    return "downloaded";
+  }
+
+  const previewWindow = window.open(url, "_blank", "noopener,noreferrer");
+  window.setTimeout(() => URL.revokeObjectURL(url), 1500);
+  return previewWindow ? "opened" : "unavailable";
+}
+
+function renderShareFeedback(status) {
+  const copy = t();
+
+  if (status === "downloaded") {
+    setShareFeedback(copy.shareDownloaded);
+    return;
+  }
+
+  if (status === "opened") {
+    setShareFeedback(copy.shareOpened);
+    return;
+  }
+
+  if (status === "unavailable") {
+    setShareFeedback(copy.shareUnavailable);
+    return;
+  }
+
+  if (status === "shared") {
+    setShareFeedback(copy.shareShared);
+    return;
+  }
+
+  setShareFeedback("");
+}
+
+function clearShareFeedback() {
+  setShareFeedback("");
 }
 
 function renderCountdownState() {
@@ -755,6 +880,7 @@ function resetResultsView() {
   trendChartEmpty.textContent = copy.trendChartEmpty;
   renderTrendChart();
   updateShareButtonState();
+  clearShareFeedback();
 }
 
 function clearPendingTimeout() {
@@ -843,6 +969,7 @@ function scheduleRound() {
 function beginTest() {
   const copy = t();
   clearPendingTimeout();
+  clearShareFeedback();
   setFocusMode(true);
   state.totalRounds = Number(attemptsSelect.value);
   state.currentRound = 0;
@@ -948,19 +1075,27 @@ function applyLanguage(language) {
 resetButton.addEventListener("click", resetTest);
 shareButton.addEventListener("click", async () => {
   try {
-    await shareResult();
+    setShareFeedback(t().shareWorking);
+    const status = await shareResult();
+    renderShareFeedback(status);
   } catch (error) {
     if (error && error.name === "AbortError") {
+      clearShareFeedback();
       return;
     }
     console.error(error);
+    setShareFeedback(t().shareUnavailable);
   }
 });
 testArea.addEventListener("pointerdown", handleAreaPointerDown);
 testArea.addEventListener("keydown", handleAreaKeydown);
 attemptsSelect.addEventListener("change", resetTest);
+themeToggleButton.addEventListener("click", () => {
+  applyTheme(state.theme === "dark" ? "light" : "dark");
+});
 languageSelect.addEventListener("change", (event) => {
   applyLanguage(event.target.value);
 });
 
+applyTheme(state.theme);
 applyLanguage(state.language);
