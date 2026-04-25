@@ -283,9 +283,19 @@ h1 {
   color: var(--muted);
 }
 
+.ad-placeholder {
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  padding: 18px;
+}
+
+.ad-placeholder p {
+  margin: 0;
+}
+
 .ad-slot span {
   display: block;
-  margin-bottom: 8px;
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.4rem;
   color: var(--ink);
@@ -293,6 +303,39 @@ h1 {
 
 .ad-slot.square {
   min-height: 260px;
+}
+
+.content-ad-slot {
+  margin-top: 18px;
+  min-height: 170px;
+}
+
+.ad-slot[data-adsense-status="ready"] {
+  display: block;
+  padding: 0;
+  border-style: solid;
+}
+
+.ad-slot[data-adsense-status="ready"] .ad-placeholder {
+  display: none;
+}
+
+.ad-slot[data-adsense-status="error"] ins.adsbygoogle {
+  display: none !important;
+}
+
+.ad-slot ins.adsbygoogle {
+  display: block;
+  width: 100%;
+  min-height: 90px;
+}
+
+.ad-slot.square ins.adsbygoogle {
+  min-height: 250px;
+}
+
+.content-ad-slot ins.adsbygoogle {
+  min-height: 160px;
 }
 
 .layout {

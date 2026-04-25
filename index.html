@@ -23,16 +23,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
-
-    <!--
-      將 ca-pub-xxxxxxxxxxxxxxxx 換成你的 AdSense Publisher ID 後取消註解。
-      AdSense 通過審核前，建議先保留註解避免無效請求。
-    -->
-    <!--
-    <script async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
-      crossorigin="anonymous"></script>
-    -->
+    <script src="./adsense-config.js"></script>
   </head>
   <body>
     <div class="page-shell">
@@ -60,9 +51,11 @@
         </div>
         <aside class="ad-card">
           <p class="ad-label" data-i18n="adLabel">廣告區</p>
-          <div class="ad-slot">
-            <span>728 x 90</span>
-            <p data-i18n="heroAdText">這裡可放 AdSense 橫幅廣告</p>
+          <div class="ad-slot" data-adsense-unit="heroBanner" data-ad-format="horizontal">
+            <div class="ad-placeholder">
+              <span>728 x 90</span>
+              <p data-i18n="heroAdText">這裡可放 AdSense 橫幅廣告</p>
+            </div>
           </div>
         </aside>
       </header>
@@ -165,9 +158,11 @@
 
           <section class="ad-card side-ad">
             <p class="ad-label" data-i18n="adLabel">廣告區</p>
-            <div class="ad-slot square">
-              <span>300 x 250</span>
-              <p data-i18n="sideAdText">可替換成側邊矩形廣告</p>
+            <div class="ad-slot square" data-adsense-unit="sidebarRectangle" data-ad-format="rectangle">
+              <div class="ad-placeholder">
+                <span>300 x 250</span>
+                <p data-i18n="sideAdText">可替換成側邊矩形廣告</p>
+              </div>
             </div>
           </section>
         </aside>
@@ -179,12 +174,24 @@
           <p id="monetize-why-text">
             反應測試頁停留時間通常不短，使用者會反覆挑戰多輪。這種單頁型互動站很適合放上方橫幅、側欄矩形與結果區下方原生廣告。
           </p>
+          <div class="ad-slot content-ad-slot" data-adsense-unit="contentPrimary" data-ad-format="auto">
+            <div class="ad-placeholder">
+              <span>Responsive</span>
+              <p data-i18n="contentAdText">可替換成底部內容型廣告</p>
+            </div>
+          </div>
         </article>
         <article class="text-card">
           <p class="section-label" data-i18n="monetizeNoteLabel">變現提醒</p>
           <p id="monetize-note-text">
             廣告收益要進你自己的帳號，必須用你自己的網域、AdSense 帳號與廣告單元 ID。單純複製別人的版面，不會讓收益流到你這邊。
           </p>
+          <div class="ad-slot content-ad-slot" data-adsense-unit="contentSecondary" data-ad-format="auto">
+            <div class="ad-placeholder">
+              <span>Responsive</span>
+              <p data-i18n="contentAdText">可替換成底部內容型廣告</p>
+            </div>
+          </div>
         </article>
       </section>
 
@@ -197,5 +204,6 @@
     </div>
 
     <script src="./script.js"></script>
+    <script src="./adsense-loader.js"></script>
   </body>
 </html>

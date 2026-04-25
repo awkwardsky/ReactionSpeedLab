@@ -22,9 +22,11 @@ ReactionSpeedLab/
 ├── index.html       # 主頁入口與 DOM 結構
 ├── privacy.html     # 隱私權政策頁
 ├── styles.css       # 全站樣式、主題變數、響應式版面
-├── script.js        # 測試邏輯、多語系、主題、分享與圖表
-├── README.md        # 使用、預覽、AdSense 與部署說明
-└── ARCHITECTURE.md  # 本技術架構文檔
+├── script.js         # 測試邏輯、多語系、主題、分享與圖表
+├── adsense-config.js # AdSense Publisher ID 與廣告單元設定
+├── adsense-loader.js # AdSense script 與四個廣告單元載入邏輯
+├── README.md         # 使用、預覽、AdSense 與部署說明
+└── ARCHITECTURE.md   # 本技術架構文檔
 ```
 
 ## 技術棧
@@ -32,6 +34,7 @@ ReactionSpeedLab/
 - HTML5：頁面結構、SEO meta、Open Graph meta、互動區域標記。
 - CSS3：CSS custom properties、Grid/Flex layout、media queries、`color-mix()`、`dvh`。
 - Vanilla JavaScript：DOM 操作、狀態管理、計時、事件處理、Canvas、Web Share API。
+- Google AdSense：四個廣告區由 `adsense-config.js` 設定，`adsense-loader.js` 在設定有效時載入。
 - Browser Storage：使用 `localStorage` 保存語言與主題偏好。
 - 靜態部署：可直接部署到 Vercel、Netlify、GitHub Pages、Cloudflare Pages 等服務。
 
@@ -39,7 +42,7 @@ ReactionSpeedLab/
 
 `index.html` 是應用主入口，頁面由以下區塊組成：
 
-- `head`：包含基本 SEO、Open Graph、Google Fonts、樣式載入，以及已註解的 AdSense script 範例。
+- `head`：包含基本 SEO、Open Graph、Google Fonts、樣式載入，以及 `adsense-config.js` 設定載入。
 - `.topbar`：主題切換按鈕與語言選單。
 - `.hero`：品牌標題與上方 728 x 90 廣告預留區。
 - `.layout`：主測試面板與右側資訊欄。
@@ -52,7 +55,7 @@ ReactionSpeedLab/
 
 ## JavaScript 架構
 
-`script.js` 採單檔集中式設計，主要分成七個責任區：
+前端 JavaScript 主要分成八個責任區；核心測試邏輯在 `script.js`，AdSense 載入邏輯在 `adsense-loader.js`：
 
 1. `translations`
    - 管理四語系文案、SEO meta、按鈕文字、結果評語、分享文案與格式化函式。
@@ -87,6 +90,11 @@ ReactionSpeedLab/
    - `buildShareBlob()` 用 Canvas 產出 1200 x 1500 PNG。
    - `drawShareChart()` 在分享圖中繪製成績趨勢。
    - `shareResult()` 優先使用 Web Share API 分享檔案；不支援時退回下載；若下載不可用則嘗試開新分頁。
+
+8. AdSense 載入
+   - `adsense-config.js` 保存 Publisher ID 與四個 slot ID。
+   - `adsense-loader.js` 驗證 `ca-pub-...` 與 slot ID 格式後，才會載入 Google AdSense script。
+   - 未填入真實 ID 時，四個廣告區會保留佔位內容，不會送出廣告請求。
 
 ## 核心狀態流程
 
@@ -174,15 +182,15 @@ finished
 
 專案已預留四個廣告/變現區塊：
 
-- Hero 右側或上方橫幅：`index.html` 內標示 728 x 90。
-- Sidebar 矩形廣告：`index.html` 內標示 300 x 250。
-- Content Grid 第一張文字卡：目前顯示「為什麼這個頁面適合放廣告」。
-- Content Grid 第二張文字卡：目前顯示「變現提醒」。
+- Hero 右側或上方橫幅：`data-adsense-unit="heroBanner"`，建議使用 horizontal。
+- Sidebar 矩形廣告：`data-adsense-unit="sidebarRectangle"`，建議使用 rectangle。
+- Content Grid 第一張文字卡：`data-adsense-unit="contentPrimary"`，建議使用 responsive/auto。
+- Content Grid 第二張文字卡：`data-adsense-unit="contentSecondary"`，建議使用 responsive/auto。
 
-`index.html` 的 `head` 已放置註解版 AdSense script 範例。正式接入時需要：
+正式接入時需要：
 
-1. 替換成自己的 `ca-pub-...`。
-2. 將需要接廣告的區塊改成 Google AdSense 提供的 `<ins class="adsbygoogle">`，或保留底部兩張卡作為內容型廣告/導流文案。
+1. 在 Google AdSense 建立四個顯示廣告單元。
+2. 在 `adsense-config.js` 填入自己的 `publisherId` 與四個 slot ID。
 3. 確認隱私權政策與 Cookie 說明符合實際使用情境。
 
 ## 本地開發與部署
@@ -205,6 +213,8 @@ http://localhost:8000
 - `privacy.html`
 - `styles.css`
 - `script.js`
+- `adsense-config.js`
+- `adsense-loader.js`
 
 ## 維護注意事項
 

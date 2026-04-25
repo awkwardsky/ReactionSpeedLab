@@ -20,21 +20,22 @@ python3 -m http.server 8000
 ## AdSense 接法
 
 1. 申請並通過自己的 Google AdSense 帳號審核。
-2. 把 `index.html` 內 `<head>` 的 AdSense script 註解打開，替換成你的 `ca-pub-...`。
-3. 把頁面中的廣告預留區塊改成你的廣告單元，例如：
+2. 在 AdSense 建立 4 個顯示廣告單元，分別對應 Hero、Sidebar、底部第一區、底部第二區。
+3. 打開 `adsense-config.js`，填入你的 Publisher ID 與 4 個廣告單元 slot ID。
 
-```html
-<ins
-  class="adsbygoogle"
-  style="display:block"
-  data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
-  data-ad-slot="1234567890"
-  data-ad-format="auto"
-  data-full-width-responsive="true"></ins>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+```js
+window.REACTION_ADSENSE_CONFIG = {
+  publisherId: "ca-pub-1234567890123456",
+  slots: {
+    heroBanner: "1234567890",
+    sidebarRectangle: "2345678901",
+    contentPrimary: "3456789012",
+    contentSecondary: "4567890123",
+  },
+};
 ```
+
+沒有填入真實 ID 前，網站只會顯示佔位區，不會送出 AdSense 廣告請求。
 
 ## 部署
 
