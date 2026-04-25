@@ -12,7 +12,7 @@ Reaction Speed Lab 是一個純靜態前端專案，用原生 HTML、CSS、JavaS
 - SVG 趨勢圖與 Canvas 分享圖片。
 - 繁體中文、英文、日文、韓文四語系。
 - 淺色與深色主題，偏好保存在 `localStorage`。
-- 預留 AdSense 橫幅與側邊廣告版位。
+- 預留 AdSense 橫幅、側邊與底部內容型廣告/變現版位。
 - 簡易隱私權政策頁。
 
 ## 檔案結構
@@ -45,7 +45,7 @@ ReactionSpeedLab/
 - `.layout`：主測試面板與右側資訊欄。
 - `.tester-panel`：反應測試區、分享/重置按鈕、結果卡與趨勢圖。
 - `.sidebar`：玩法說明、反應表現參考、300 x 250 廣告預留區。
-- `.content-grid`：廣告變現說明文字。
+- `.content-grid`：底部兩個文字型廣告/變現區塊。
 - `.site-footer`：版權與隱私權政策連結。
 
 `script.js` 透過固定 id 與 class 查找 DOM 元素，因此 HTML 結構中的 `#test-area`、`#attempts`、`#language-select`、`#share-button`、`#average-time`、`#trend-chart-svg` 等節點屬於功能依賴點。調整 HTML 時要同步確認 JS selector。
@@ -172,15 +172,17 @@ finished
 
 ## 廣告整合點
 
-專案已預留兩個主要廣告位置：
+專案已預留四個廣告/變現區塊：
 
 - Hero 右側或上方橫幅：`index.html` 內標示 728 x 90。
 - Sidebar 矩形廣告：`index.html` 內標示 300 x 250。
+- Content Grid 第一張文字卡：目前顯示「為什麼這個頁面適合放廣告」。
+- Content Grid 第二張文字卡：目前顯示「變現提醒」。
 
 `index.html` 的 `head` 已放置註解版 AdSense script 範例。正式接入時需要：
 
 1. 替換成自己的 `ca-pub-...`。
-2. 將廣告預留區改成 Google AdSense 提供的 `<ins class="adsbygoogle">`。
+2. 將需要接廣告的區塊改成 Google AdSense 提供的 `<ins class="adsbygoogle">`，或保留底部兩張卡作為內容型廣告/導流文案。
 3. 確認隱私權政策與 Cookie 說明符合實際使用情境。
 
 ## 本地開發與部署
